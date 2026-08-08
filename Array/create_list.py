@@ -46,6 +46,11 @@ class MyList:
               print(self.A[self.n-1])
               self.n = self.n - 1
 
+
+    def clear(self):
+        self.n = 0
+        self.size = 1
+    
     # resize function to resize the array when it is full by making a new array and copying the content of the old array to the new array and reassigning the new array to the old array
     def __resize(self, new_capacity):
         B = self.__make_array(new_capacity)
@@ -78,4 +83,9 @@ print(L)
 L.pop()
 print(L)
 L.pop()
+print(L)
+
+L = [10,2,3,45]
+print(L)
+L.clear()
 print(L)
