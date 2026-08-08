@@ -67,7 +67,13 @@ class MyList:
         self.A[pos] = item
         self.n = self.n + 1
 
- 
+    def __delitem__(self,pos):
+        if 0<= pos < self.n:
+            for i in range(pos, self.n-1):
+                self.A[i] = self.A[i+1]
+
+            self.n = self.n - 1
+
     # resize function to resize the array when it is full by making a new array and copying the content of the old array to the new array and reassigning the new array to the old array
     def __resize(self, new_capacity):
         B = self.__make_array(new_capacity)
@@ -119,4 +125,6 @@ print(L.find('0'))
 
 print(L)
 L.insert(1,0)
+print(L)
+del L[3]
 print(L)
