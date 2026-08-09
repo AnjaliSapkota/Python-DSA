@@ -74,9 +74,16 @@ class LinkedList:
         if curr != None:
             new_node.next = curr.next
             curr.next = new_node
+            self.n = self.n + 1
         else:
             return 'Item not found'
-        
+
+    def clear(self):
+        self.head = None
+        self.n = 0
+
+    def delete_head(self):
+        self.head = self.head.next
 L = LinkedList() 
 
 # insert at head
@@ -93,4 +100,7 @@ print(len(L))
 print(L)
 
 L.append(5)
+print(L)
+
+L.clear()
 print(L)
