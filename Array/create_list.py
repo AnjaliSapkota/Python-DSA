@@ -57,6 +57,14 @@ class MyList:
                 return i
         return "ValueError- Not in list"
 
+    def remove(self, item):
+        pos = self.find(item)
+
+        if type(pos) == int:
+            self.__delitem__(pos)
+        else:
+            return pos
+
     def insert(self, item, pos):
         if self.n == self.size:
             self.__resize(self.size*2)
@@ -127,4 +135,6 @@ print(L)
 L.insert(1,0)
 print(L)
 del L[3]
+print(L)
+L.remove('hello')
 print(L)
