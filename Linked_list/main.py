@@ -83,7 +83,22 @@ class LinkedList:
         self.n = 0
 
     def delete_head(self):
+        if self.head == None:
+            return "Empty list"
         self.head = self.head.next
+        self.n = self.n - 1
+
+    def delete_tail(self):
+        curr = self.head
+        if curr.next == None:
+            return self.delete_head()
+
+        while curr.next.next != None:
+            curr = curr.next
+
+        curr.next = None
+        self.n = self.n - 1
+
 L = LinkedList() 
 
 # insert at head
@@ -103,4 +118,13 @@ L.append(5)
 print(L)
 
 L.clear()
+# print(L)
+# L.delete_head()
+# print(L)
+
+L.append(10)
+L.append(20)
+L.append(30)
+print(L)
+L.delete_tail()
 print(L)
