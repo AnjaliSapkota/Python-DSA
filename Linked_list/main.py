@@ -89,15 +89,26 @@ class LinkedList:
         self.n = self.n - 1
 
     def delete_tail(self):
-        curr = self.head
-        if curr.next == None:
+        # empty list 
+        if self.head == None: 
+            return "Empty list"
+
+        # only one node 
+        if self.head.next == None: 
             return self.delete_head()
 
-        while curr.next.next != None:
+        curr = self.head
+
+        # move to second-last node 
+        while curr.next.next != None: 
             curr = curr.next
 
+        # remove last node
         curr.next = None
         self.n = self.n - 1
+        
+
+# Testing 
 
 L = LinkedList() 
 
