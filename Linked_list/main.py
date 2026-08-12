@@ -112,6 +112,12 @@ class LinkedList:
 
     def remove(self, value):
 
+        if self.head == None:
+            return 'Empty list'
+
+        if self.head.data == value:
+           return self.delete_head()
+
         curr = self.head
 
         while curr.next != None:
@@ -145,7 +151,7 @@ print(L)
 L.append(5)
 print(L)
 
-L.clear()
+# L.clear()
 # print(L)
 # L.delete_head()
 # print(L)
@@ -155,4 +161,7 @@ L.append(20)
 L.append(30)
 print(L)
 L.delete_tail()
+print(L)
+
+L.remove(3)
 print(L)
