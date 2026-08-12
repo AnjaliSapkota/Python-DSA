@@ -131,6 +131,17 @@ class LinkedList:
         else:
             curr.next = curr.next.next
 
+    def search(self,item):
+        curr = self.head
+        pos = 0
+
+        while curr!= None:
+            if curr.data == item:
+                return pos
+            curr - curr.next
+            pos = pos + 1
+
+        return 'Not found'
 # Testing 
 
 L = LinkedList() 
