@@ -106,7 +106,24 @@ class LinkedList:
         # remove last node
         curr.next = None
         self.n = self.n - 1
-        
+
+
+    # delete by value
+
+    def remove(self, value):
+
+        curr = self.head
+
+        while curr.next != None:
+            if curr.next.data == value:
+                break
+            curr = curr.next
+
+        if curr.next == None:
+            #item not found
+            return 'Not found'
+        else:
+            curr.next = curr.next.next
 
 # Testing 
 
