@@ -13,41 +13,72 @@
 # Follow up: Could you come up with a one-pass algorithm using only constant extra space?
 
 
+#---- Soultion -----
 
-# o(n) time compelxity method:
-
+# O(n) time compelxity in single pass using Dutch National Flag Algorithm
 class Solution(object):
     def sortColors(self, nums):
         """
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        count0 = 0
-        count1=0
-        count2=0
-        i =  0
         n = len(nums)
-        for i in range(n):
-            if(nums[i] == 0):
-                count0 += 1
-            elif nums[i] == 1:
-                count1 += 1
+        low = 0
+        mid = 0
+        high = n - 1
+        while mid<=high:
+            if nums[mid] == 0:
+                nums[low], nums[mid] = nums[mid], nums[low]
+                low += 1
+                mid += 1
+            elif nums[mid] == 1:
+                mid += 1
             else:
-                count2 += 1
+                nums[mid], nums[high] = nums[high], nums[mid]
+                high -= 1
+            
+            
+# test
+nums = [2,0,1,0,1,1,2,0,2]
+  
+solution = Solution()
+solution.sortColors(nums)
+print(nums)
 
-        i = 0
-        while count0 > 0:
-            nums[i] = 0
-            i +=1
-            count0 -= 1
-        while count1>0:
-            nums[i] = 1
-            i +=1
-            count1 -= 1
-        while count2>0:
-            nums[i] = 2
-            i+=1
-            count2-=1
+# o(2n) time compelxity method (Bruteforce) using two pass:
+
+# class Solution(object):
+#     def sortColors(self, nums):
+#         """
+#         :type nums: List[int]
+#         :rtype: None Do not return anything, modify nums in-place instead.
+#         """
+#         count0 = 0
+#         count1=0
+#         count2=0
+#         i =  0
+#         n = len(nums)
+#         for i in range(n):
+#             if(nums[i] == 0):
+#                 count0 += 1
+#             elif nums[i] == 1:
+#                 count1 += 1
+#             else:
+#                 count2 += 1
+
+#         i = 0
+#         while count0 > 0:
+#             nums[i] = 0
+#             i +=1
+#             count0 -= 1
+#         while count1>0:
+#             nums[i] = 1
+#             i +=1
+#             count1 -= 1
+#         while count2>0:
+#             nums[i] = 2
+#             i+=1
+#             count2-=1
         
         
 
